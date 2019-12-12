@@ -1,0 +1,16 @@
+package application;
+import java.util.ArrayList;
+
+public class ProjectList {
+	private ArrayList<HProject> projList;
+	
+	public ProjectList() {
+		projList = new ArrayList<>;
+	}
+	
+	public addProject(Hproject p) {
+		projList.add(p);
+	}
+	
+
+}

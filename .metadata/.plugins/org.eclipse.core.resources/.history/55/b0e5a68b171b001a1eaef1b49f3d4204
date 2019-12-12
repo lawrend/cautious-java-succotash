@@ -1,0 +1,22 @@
+package M12HW;
+import java.util.*;
+
+public class ServeThread implements Runnable {
+	private BlockingQueue<Integer> foodQueue;
+	
+	public ServeThread(BlockingQueue<Food> foodQueue) {
+		this.foodQueue = foodQueue;
+	}
+		
+	@Override
+	public void run() {
+		for(Food f : foodQueue) {
+		  try { 
+			  System.out.println("Serving: " + f.getName());
+			  Thread.sleep(f.getServeTime());
+		  } catch(InterruptedException ex) {}
+		}
+	}
+	
+
+}

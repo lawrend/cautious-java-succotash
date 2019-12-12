@@ -1,0 +1,66 @@
+package application;
+
+import javafx.application.*;
+import javafx.event.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.paint.*;
+import javafx.scene.text.*;
+import javafx.stage.*;
+import java.util.Scanner;
+
+public class NumberWang extends Application {
+	private Button button;
+	private Text guessText;
+	private double secretNumber;
+	private Scene scene;
+	private int guessedNumber;
+	
+    public void start(Stage primaryStage) {
+    	
+		Scanner scan = new Scanner(System.in);
+    	
+    	secretNumber = Math.random() * 100;
+		
+		Pane pane = new FlowPane();
+		pane.setStyle("-fx-background-color: null;");
+		
+		button = new Button("Check");
+		button.setOnAction(this::handleButton);
+		pane.getChildren().add(button);
+		
+		guessText = new Text("Count: 0");
+		guessText.setFont(Font.font(20));
+		pane.getChildren().add(guessText);
+		
+		scene = new Scene(pane, 600, 600);
+		scene.setFill(Color.BEIGE);
+		
+		primaryStage.setTitle("Guess the Number!");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+		guessedNumber = scan.nextInt();
+		
+	}
+
+	private void handleButton(ActionEvent event) {
+		String replyText = "";
+		
+		if(guessedNumber > secretNumber) {
+			replyText = "Too High!";
+		} else if(guessedNumber < secretNumber) {
+			replyText = "Too Low!";
+		} else {
+			replyText = "Got It!!!";
+		}
+		guessText.setText(replyText);
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+
+	}
+
+}

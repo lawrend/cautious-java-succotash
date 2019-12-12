@@ -1,0 +1,13 @@
+package dataStructsMod7;
+import java.util.*;
+
+public class RecursionPractice {
+
+	public static void main(String[] args) {
+		System.out.println("working");
+		
+		// TODO Auto-generated method stub
+
+	}
+
+}

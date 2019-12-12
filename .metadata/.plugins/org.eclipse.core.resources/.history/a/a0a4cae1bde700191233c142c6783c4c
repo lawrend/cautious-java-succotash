@@ -1,0 +1,6 @@
+package application;
+import javafx.application.*;
+
+class ButtonTester2 {
+
+}

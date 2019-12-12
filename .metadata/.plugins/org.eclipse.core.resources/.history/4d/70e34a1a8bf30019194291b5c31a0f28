@@ -1,0 +1,16 @@
+package dataStructsMod7;
+import java.util.*;
+
+public class RecursionPractice {
+
+	public static void main(String[] args) {
+		
+		public static void vowelFinder(String string) {
+			int strlen = string.length();
+		}
+		
+		// TODO Auto-generated method stub
+
+	}
+
+}

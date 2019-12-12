@@ -1,0 +1,20 @@
+package dataStructsProjB;
+
+//Cannot do this 
+//T[] array = new T[size]
+//Must do this
+//T[] genericArray = (T[]) new Object[size];
+
+public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
+	//inside the class 'this' is an ArrayHeadTailList object
+	//this.array will be the array
+	
+	private T[] listArray;
+	private int numberOfElements;
+	
+	public ArrayHeadTailList(int capacity) {
+		
+		
+	}
+
+}

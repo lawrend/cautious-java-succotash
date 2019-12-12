@@ -1,0 +1,19 @@
+package M12HW;
+
+public class ServeThread extends Thread {
+	
+	public ServeThread(Food f) {
+		this.f = f;
+	}
+	
+	@Override
+	public void run() {
+		  try { 
+			  System.out.println("Serving: " + f.getName());
+			  Thread.sleep(f.getServeTime());
+		  } catch(InterruptedException ex) {}
+		}
+	}
+	
+
+}

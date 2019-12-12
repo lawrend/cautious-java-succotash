@@ -1,0 +1,75 @@
+package application;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+public class ProjectGUIController extends Application {
+	
+	private HProject project;
+	private ProjectGUIView projectInputView;
+	
+	public ProjectGUIController() {
+		project = new HProject();
+		projectInputView = new ProjectGUIView();
+		
+		projectInputView.setAddProjectAction(this::addProject);
+	}
+	
+	
+    @Override
+	public void start(Stage primaryStage) {
+		ProjectGUIController controller = new ProjectGUIController();
+
+		Scene scene = new Scene(controller.projectInputView.getParent(), 450, 500, Color.TRANSPARENT);
+		primaryStage.setTitle("Project Central");
+		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
+		primaryStage.show();
+	}
+	
+	public static void main(String[] args) {
+	  launch(args);
+	}
+	
+	private void addProject(ActionEvent event) {
+		String errorMessage = "";
+		try {
+			String name = projectInputView.getProjNameField(); // getting info from view
+			if (name.isEmpty()) {
+				errorMessage = "Name must not be empty.";
+				throw new IllegalArgumentException();
+			}
+
+			try {
+				String estCost = projectInputView.getProjEstCostField(); // getting info from view
+
+				if (estCost.isEmpty()) {
+					errorMessage = "Cost must not be empty.";
+					throw new IllegalArgumentException();
+				}
+				int cost = Integer.parseInt(estCost);
+
+				HProject project = new HProject(name, cost);
+			} catch (NumberFormatException ex) {
+				errorMessage = "Cost must be numeric.";
+				throw new IllegalArgumentException();
+			}
+
+		} catch (IllegalArgumentException ex) {
+			Alert error = new Alert(AlertType.ERROR);
+			error.setTitle("Error");
+			error.setHeaderText(null);
+			error.setContentText(errorMessage);
+			error.showAndWait();
+
+		} finally {
+			projectInputView.clearInputs(); // update the view- we clear it out for new input
+			projectInputView.hideProjInfo();
+		}
+	}
+
+}

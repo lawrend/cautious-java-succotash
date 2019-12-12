@@ -1,0 +1,18 @@
+package application;
+import javafx.application.*;
+import javafx.scene.layout.Pane;
+
+public class Mod5HW extends Application {
+	private Text mainText;
+	
+	public void start(Stage primaryStage) {
+		Pane pane = new FlowPane();
+		pane.setStyle("-fx-background-color: null);");
+		
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+}

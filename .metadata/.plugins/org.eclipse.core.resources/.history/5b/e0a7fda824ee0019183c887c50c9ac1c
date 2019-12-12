@@ -1,0 +1,101 @@
+package dataStructsProjB;
+import java.util.Arrays;
+
+//Cannot do this 
+//T[] array = new T[size]
+//Must do this
+//T[] genericArray = (T[]) new Object[size];
+
+public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
+	//inside the class 'this' is an ArrayHeadTailList object
+	//this.array will be the array
+	
+	private T[] listArray;
+	private int numberOfElements;
+	
+    //public ArrayHeadTailList()  {
+    //	this(DEFAULT_CAPACITY);
+    //}
+    
+	public ArrayHeadTailList(int initialCapacity) {
+		T[] list = (T[])new Object[initialCapacity];
+		listArray = list;
+		numberOfElements = 0;
+	}
+	
+	public ArrayHeadTailList(T[] contents) 
+   {
+	  @SuppressWarnings("unchecked")
+	  T[] list = (T[])new Object[contents.length];
+      list = Arrays.copyOf(contents, contents.length);
+      listArray = list;
+      numberOfElements = contents.length;
+   }
+	
+	public void addFront(T newEntry) {
+//		for(int i=listArray.length-1; i>=0; i--) {
+//			if(listArray[i] !=null) {
+//			listArray[i] = listArray[i+1];
+//			}
+//		}
+		  listArray[0] = newEntry;
+		  numberOfElements++;
+	}
+	
+	public void addBack(T newEntry) {
+		
+		listArray[listArray.length - 1] = newEntry;
+		numberOfElements++;
+	}
+	
+	public T removeFront() {
+		return listArray[0];
+	}
+	
+	public T removeBack() {
+		return listArray[listArray.length - 1];
+		numberOfElements -- ;
+	}
+	
+	public void clear() {
+		listArray = (T[])new Object[listArray.length];
+		
+	}
+	
+	public T getEntry(int givenPosition) {
+		if(givenPosition >= 0 && givenPosition < listArray.length) {
+		return listArray[givenPosition];
+		}		
+		else {
+			return null;
+		}
+	}
+	
+	public void display() {
+		System.out.println(numberOfElements + " elements; capacity = " + listArray.length);
+		
+	}
+	
+	public int indexOf(T anEntry) {
+		return 0;
+	}
+	
+	public int lastIndexOf(T anEntry) {
+		return 0;
+	}
+	
+	public boolean contains(T anEntry) {
+		return true;
+	}
+	
+	public int size() {
+		return 1;
+	}
+	
+	public boolean isEmpty() {
+		return false;
+	}
+	
+	
+
+}

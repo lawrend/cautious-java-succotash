@@ -1,0 +1,81 @@
+package advJavaMod7;
+import java.io.*;
+import java.util.*;
+import java.time.*;
+
+public class ESMaker {
+	
+	Map<String, EndangeredSpecies> esMap = new TreeMap();
+	
+	private static void fillMap(Map<String,EndangeredSpecies> map) {
+        try (Scanner fileScan = new Scanner(
+                new FileReader(new File("speciesList.csv")))) {
+            String line = fileScan.nextLine(); // column headers
+
+            while(fileScan.hasNext()) {
+                line = fileScan.nextLine();
+                
+                Scanner lineScan = new Scanner(line);
+                lineScan.useDelimiter(",");
+                String type = lineScan.next();
+                String name = lineScan.next();
+                String status = lineScan.next();
+                String location = lineScan.next();
+                String state = lineScan.next();
+                String otherState = lineScan.next();
+                String id = lineScan.next();
+                EndangeredSpecies es = new EndangeredSpecies(id, name, location, state, type);
+                map.put(id, es);
+            }
+    
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+	
+	private static void fillList(List<String,EndangeredSpecies> list) {
+        try (Scanner fileScan = new Scanner(
+                new FileReader(new File("speciesList.csv")))) {
+            String line = fileScan.nextLine(); // column headers
+
+            while(fileScan.hasNext()) {
+                line = fileScan.nextLine();
+                
+                Scanner lineScan = new Scanner(line);
+                lineScan.useDelimiter(",");
+                String type = lineScan.next();
+                String name = lineScan.next();
+                String status = lineScan.next();
+                String location = lineScan.next();
+                String state = lineScan.next();
+                String otherState = lineScan.next();
+                String id = lineScan.next();
+                EndangeredSpecies es = new EndangeredSpecies(id, name, location, state, type);
+                list.add(es);
+            }
+    
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+	
+    private static void countSpecies(Map<String,EndangeredSpecies> map) {
+	    int recordsPrinted = 0;
+	    
+	    Collection<EndangeredSpecies> values = map.values();
+	    Iterator<EndangeredSpecies> iterator = values.iterator();
+	    while(iterator.hasNext()) {
+	        EndangeredSpecies es = iterator.next();
+            if(es.getLocation().equals("CA")) {
+                es.process();
+                if(recordsPrinted < printCount){
+                    System.out.println(es);
+                    recordsPrinted++;
+                }
+                    
+            }
+	    }
+	}
+		
+
+}

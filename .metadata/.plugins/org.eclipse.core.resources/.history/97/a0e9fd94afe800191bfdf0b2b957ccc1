@@ -1,0 +1,59 @@
+package application;
+import javafx.application.*;
+import javafx.geometry.*;
+import javafx.event.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.paint.*;
+import javafx.scene.text.*;
+import javafx.stage.*;
+import javafx.scene.shape.*;
+
+public class Mod5HW extends Application {
+	private Text mainText;
+	private Scene scene;
+	private VBox vbox;
+	private Circle circ;
+	private Ellipse ell;
+	
+	public void start(Stage primaryStage) {
+		BorderPane bpane = new BorderPane();
+		FlowPane fpane = new FlowPane();
+		fpane.setHgap(125);
+		//vbox = new VBox();
+		
+		bpane.getChildren().add(fpane);
+		
+		mainText = new Text("art is a social construct");
+		mainText.setFont(Font.font(20));
+		
+		scene = new Scene(bpane, 600, 600);
+		scene.setFill(Color.BLUE);
+		
+		circ = new Circle(300, 500, 40);
+		circ.setFill(Color.PINK);
+		ell = new Ellipse(30, 50, 20, 140);
+		
+		fpane.setMargin(mainText, new Insets(20, 20, 50, 20));
+		//fpane.setMargin(circ, new Insets(20, 20, 20, 20));
+		fpane.setMargin(ell, new Insets(20, 20, 20, 20));
+		
+		fpane.getChildren().add(mainText);
+	//	vbox.getChildren().add(mainText);
+		fpane.getChildren().addAll(circ, ell);
+		
+//		vbox.getChildren().add(circ);
+		
+		
+		
+		primaryStage.setTitle("Homework");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+}

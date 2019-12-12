@@ -1,0 +1,25 @@
+package M12HW;
+import java.util.*;
+
+public class CookThread extends Thread {
+	
+	private ArrayList<Food> foodList; 
+	private int delay; 
+	
+	public CookThread(ArrayList foodList) {
+		this.foodList = foodList;
+		this.delay = 100;
+	}
+	
+	@Override
+	public void run() {
+		for(Food f:foodList) {
+		  try { 
+			  System.out.println("Cooking: " + f.getName());
+			  Thread.sleep(delay);
+		  } catch(InterruptedException ex) {}
+		}
+	}
+	
+
+}

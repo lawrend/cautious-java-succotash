@@ -1,0 +1,7 @@
+package dataStructsProjB;
+
+public class ArrayHeadTailList<T> implements HeadTailListInterface<T> {
+	private T[] listArray;
+	private int numberOfElements;
+
+}

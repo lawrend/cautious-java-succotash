@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;advJavaMod7&apos;&#x0A;- Original project: &apos;advJavaMod7&apos;&#x0A;- Original element: &apos;fc87a14a-de42-45da-8d10-d53e391b7e1a_ThreatenedandEndangeredSpecies.csv&apos;" description="Delete element" element1="src/advJavaMod7/fc87a14a-de42-45da-8d10-d53e391b7e1a_ThreatenedandEndangeredSpecies.csv" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1571699803296" subPackages="false" version="1.0"/>
+</session>

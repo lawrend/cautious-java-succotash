@@ -1,0 +1,26 @@
+package M12HW;
+import java.util.*;
+import java.util.concurrent.*;
+
+public class CookThread implements Runnable {
+	
+	private BlockingQueue<Food> foodQueue;
+	
+	public CookThread(BlockingQueue foodQueue) {
+		this.foodQueue = foodQueue;
+	}
+	
+	@Override
+	public void run() {
+		for(Food f:foodQueue) {
+		  try { 
+			  System.out.println("Cooking: " + f.getName());
+			  Thread.sleep(f.getCookTime());
+			  
+			  
+		  } catch(InterruptedException ex) {}
+		}
+	}
+	
+
+}

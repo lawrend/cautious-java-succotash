@@ -1,0 +1,26 @@
+package application;
+import javafx.application.*;
+import javafx.event.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.paint.*;
+import javafx.scene.text.*;
+import javafx.stage.*;
+
+public class Mod5HW extends Application {
+	private Text mainText;
+	
+	public void start(Stage primaryStage) {
+		Pane pane = new FlowPane();
+		pane.setStyle("-fx-background-color: null);");
+		
+		mainText = new Text("hope is not evidence");
+		
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+}

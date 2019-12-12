@@ -1,0 +1,21 @@
+package M12HW;
+import java.util.*;
+
+public class ServeThread extends Thread {
+	private BlockingQueue<Food> foodList;
+	
+	public ServeThread() {
+	}
+		
+	@Override
+	public void run() {
+		for(Food f : foodList) {
+		  try { 
+			  System.out.println("Serving: " + f.getName());
+			  Thread.sleep(f.getServeTime());
+		  } catch(InterruptedException ex) {}
+		}
+	}
+	
+
+}

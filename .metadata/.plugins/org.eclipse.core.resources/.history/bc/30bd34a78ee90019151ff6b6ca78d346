@@ -1,0 +1,18 @@
+package application;
+import javafx.collections.*;
+import javafx.event.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.paint.*;
+import javafx.scene.text.*;
+
+public class ProjectGUIView {
+	private TextField projNameField, projEstCostField;
+	private Text nameLabel, estCostLabel;
+	private Button addButton;
+	private VBox mainBox;
+	
+	private final static Font font = Font.font("Courier", 20);
+
+}

@@ -1,0 +1,58 @@
+package application;
+import javafx.application.*;
+import javafx.geometry.*;
+import javafx.event.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.scene.paint.*;
+import javafx.scene.text.*;
+import javafx.stage.*;
+import javafx.scene.shape.*;
+
+public class Mod5HW extends Application {
+	private Text mainText;
+	private Scene scene;
+	private VBox vbox;
+	private Circle circ;
+	private Ellipse ell;
+	
+	public void start(Stage primaryStage) {
+		FlowPane pane = new FlowPane();
+		pane.setHgap(25);
+		
+		
+		vbox = new VBox();
+		
+		
+		mainText = new Text("hope is not evidence");
+		mainText.setFont(Font.font(20));
+		
+		scene = new Scene(pane, 600, 600);
+		scene.setFill(Color.BLUE);
+		
+		circ = new Circle(330, 500, 40);
+		ell = new Ellipse(30, 50, 200, 140);
+		
+		pane.setMargin(mainText, new Insets(20, 20, 20, 20));
+		pane.setMargin(circ, new Insets(20, 20, 20, 20));
+		
+		
+		pane.getChildren().add(mainText);
+	//	vbox.getChildren().add(mainText);
+		pane.getChildren().addAll(circ, ell);
+		
+//		vbox.getChildren().add(circ);
+		
+		
+		
+		primaryStage.setTitle("Homework");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+}

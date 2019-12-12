@@ -1,0 +1,34 @@
+package dataStructsMod7;
+import java.util.*;
+
+public class RecursionPractice {
+
+	public static void main(String[] args) {
+		
+		vowelFinder("teaster");
+				
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void vowelFinder(String string) {
+		int strlen = string.length()-1;
+		if (strlen <0) {
+			break;
+			} else if {
+			(
+		
+			(string.charAt(strlen) == 'a') ||
+			(string.charAt(strlen) == 'e') ||
+			(string.charAt(strlen) == 'i') ||
+			(string.charAt(strlen) == 'o') ||
+			(string.charAt(strlen) == 'u') 
+			)
+		{
+		  System.out.println(string.charAt(strlen));
+		} else {
+			
+		}
+	}
+
+}

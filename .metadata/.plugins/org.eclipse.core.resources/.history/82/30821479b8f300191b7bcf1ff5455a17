@@ -1,0 +1,24 @@
+package dataStructsMod7;
+import java.util.*;
+
+public class RecursionPractice {
+
+	public static void main(String[] args) {
+		
+		vowelFinder("teaster");
+				
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void vowelFinder(String string) {
+		int strlen = string.length()-1;
+		if(
+			(string.charAt(strlen) == 'a')||
+			(string.charAt(strlen) == 'e') 
+			){
+		  System.out.println(string.charAt(strlen));
+		}
+	}
+
+}

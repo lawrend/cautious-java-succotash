@@ -1,0 +1,57 @@
+package advJavaMod7;
+import java.io.*;
+import java.util.*;
+import java.time.*;
+
+public class ESMaker {
+	
+	
+	private static void fillMapByID(Map<String,EndangeredSpecies> map) {
+        try (Scanner fileScan = new Scanner(
+                new FileReader(new File("speciesList.csv")))) {
+            String line = fileScan.nextLine(); // column headers
+
+            while(fileScan.hasNext()) {
+                line = fileScan.nextLine();
+                
+                // this structure assumes perfectly formatted input data
+                Scanner lineScan = new Scanner(line);
+                //System.out.println(line);
+                lineScan.useDelimiter(",");
+                String type = lineScan.next();
+                String name = lineScan.next();
+                String status = lineScan.next();
+                String location = lineScan.next();
+                String state = lineScan.next();
+                String otherState = lineScan.next();
+                String id = lineScan.next();
+                EndangeredSpecies es = new EndangeredSpecies(id, name, location, state, type);
+               
+                map.put(id, es);
+            }
+    
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+	
+    private static void processAllLocations(Map<String,EndangeredSpecies> map, int printCount) {
+	    int recordsPrinted = 0;
+	    
+	    Collection<EndangeredSpecies> values = map.values();
+	    Iterator<EndangeredSpecies> iterator = values.iterator();
+	    while(iterator.hasNext()) {
+	        EndangeredSpecies es = iterator.next();
+            if(es.getState().equals("CA")) {
+                es.process();
+                if(recordsPrinted < printCount){
+                    System.out.println(es);
+                    recordsPrinted++;
+                }
+                    
+            }
+	    }
+	}
+		
+
+}

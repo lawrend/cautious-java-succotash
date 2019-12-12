@@ -1,0 +1,30 @@
+package application;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+public class ProjectGUIController extends Application {
+	private HProject project;
+	private ProjectGUIView projectInputView;
+	
+	
+    @Override
+	public void start(Stage primaryStage) {
+		ProjectGUIController controller = new ProjectGUIController();
+
+		Scene scene = new Scene(controller.employeeInputView.getParent(), 450, 500, Color.TRANSPARENT);
+		primaryStage.setTitle("Employee Data Processing System");
+		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
+		primaryStage.show();
+	}
+	
+	public static void main(String[] args) {
+	  launch(args);
+	}
+
+}

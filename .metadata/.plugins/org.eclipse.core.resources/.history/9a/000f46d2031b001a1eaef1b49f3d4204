@@ -1,0 +1,24 @@
+package M12HW;
+
+public class ServeThread extends Thread {
+	
+	private int cookTime;
+	private int delay;
+	
+	public ServeThread(int cookTime, int delay) {
+		this.cookTime = cookTime; 
+		this.delay = delay;
+	}
+	
+	@Override
+	public void run() {
+		for(int i = 0; i < cookTime; i++) {
+		  try { 
+			  System.out.println("Serving: " + i);
+			  Thread.sleep(delay);
+		  } catch(InterruptedException ex) {}
+		}
+	}
+	
+
+}
